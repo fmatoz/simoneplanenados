@@ -138,7 +138,48 @@ _Mensagem enviada através da página de orçamentos da Simone Planejados._`;
     window.open(url, "_blank");
 }
 
+// Countdown Timer Logic
+function startCountdown() {
+    const todayElement = document.getElementById("today-date");
+    const hoursElement = document.getElementById("timer-hours");
+    const minutesElement = document.getElementById("timer-minutes");
+    const secondsElement = document.getElementById("timer-seconds");
+
+    // Format today's date (DD/MM/YYYY)
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const yyyy = today.getFullYear();
+    if (todayElement) todayElement.innerText = dd + "/" + mm + "/" + yyyy;
+
+    function updateTimer() {
+        const now = new Date();
+        const midnight = new Date();
+        midnight.setHours(23, 59, 59, 999);
+        
+        const diff = midnight.getTime() - now.getTime();
+        if (diff <= 0) {
+            if (hoursElement) hoursElement.innerText = "00h";
+            if (minutesElement) minutesElement.innerText = "00m";
+            if (secondsElement) secondsElement.innerText = "00s";
+            return;
+        }
+        
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        
+        if (hoursElement) hoursElement.innerText = String(hours).padStart(2, "0") + "h";
+        if (minutesElement) minutesElement.innerText = String(minutes).padStart(2, "0") + "m";
+        if (secondsElement) secondsElement.innerText = String(seconds).padStart(2, "0") + "s";
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+}
+
 // Initialize live message bubble on load
 window.onload = function() {
     updateLiveMessage();
+    startCountdown();
 };
