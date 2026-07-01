@@ -18,29 +18,29 @@
 <body class="bg-[#FAF9F6] text-[#2D2D2D] font-['Plus_Jakarta_Sans'] overflow-x-hidden">
 
     <!-- TOP MICRO BAR -->
-    <div class="bg-[#151515] text-white text-[11px] md:text-xs py-2 px-4 md:px-8 flex flex-wrap justify-between items-center gap-2">
-        <div class="flex items-center gap-4">
-            <span class="flex items-center gap-1.5 text-[#dac476]">
+    <div class="bg-[#151515] text-white text-[11px] md:text-xs py-2.5 px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-2.5 md:gap-4 text-center">
+        <div class="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-4">
+            <span class="flex items-center gap-1.5 text-[#dac476] justify-center">
                 <i class="fa-solid fa-map-pin"></i>
                 Av. Nossa Sra. do Sabará, 2674 • Campo Grande, SP
             </span>
-            <span class="hidden sm:flex items-center gap-1.5 text-gray-300">
+            <span class="hidden sm:flex items-center gap-1.5 text-gray-300 justify-center">
                 <i class="fa-solid fa-clock"></i>
                 Seg a Sáb: 09:00h às 19:00h
             </span>
         </div>
-        <div class="flex items-center gap-3">
-            <span class="flex items-center gap-1.5 bg-[#ad8c5e]/30 text-[#dac476] px-2 py-0.5 rounded border border-[#c5a880]/20 font-medium">
+        <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3">
+            <span class="flex items-center gap-1.5 bg-[#ad8c5e]/30 text-[#dac476] px-2.5 py-0.5 rounded border border-[#c5a880]/20 font-medium">
                 <i class="fa-solid fa-award"></i>
                 Empresa de Empreendedoras
             </span>
-            <span class="text-[#f4edd4] font-semibold">4.6 ★★★★★ (68 Avaliações)</span>
+            <span class="text-[#f4edd4] font-semibold">4.6 ★★★★★ <span class="text-gray-400 font-normal text-[10px] ml-1">(68 Avaliações)</span></span>
         </div>
     </div>
 
     <!-- MAIN HEADER -->
     <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#f4edd4] shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-0 sm:h-20 flex justify-between items-center gap-4">
             <div class="flex flex-col text-left">
                 <div class="flex items-baseline gap-1">
                     <span class="font-['Playfair_Display'] font-bold text-2xl tracking-wide text-[#151515]">Simone</span>
@@ -64,30 +64,45 @@
                     Solicitar Orçamento <i class="fa-solid fa-arrow-right ml-1"></i>
                 </a>
             </div>
-        </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="relative overflow-hidden py-16 md:py-24">
+           <!-- HERO SECTION -->
+    <section class="relative overflow-hidden pt-6 pb-16 md:pt-10 md:pb-20">
         <div class="absolute top-1/4 -left-32 w-96 h-96 bg-[#c5a880]/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 <!-- Persuasive Copy -->
-                <div class="lg:col-span-5 text-left flex flex-col justify-center">
-                    <div class="inline-flex items-center gap-1.5 bg-[#fbf8f0] border border-[#e8dba9] px-3.5 py-1.5 rounded-full text-[#907047] text-xs font-semibold tracking-wider uppercase mb-6 w-fit">
+                <div class="lg:col-span-5 text-center lg:text-left flex flex-col justify-center animate-fade-in">
+                    <!-- Promo Countdown Timer -->
+                    <div class="mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-2.5 mb-5 text-xs font-sans text-gray-600 bg-[#fbf8f0] border border-[#e8dba9] py-2.5 px-4 rounded-xl sm:rounded-full w-full sm:w-fit shadow-xs text-center">
+                        <div class="flex items-center gap-2 justify-center">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ad8c5e] opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-[#ad8c5e]"></span>
+                            </span>
+                            <span>
+                                Valor promocional até hoje (<span id="today-date" class="font-semibold text-gray-800">--/--/----</span>):
+                            </span>
+                        </div>
+                        <span id="countdown-timer-value" class="font-mono font-bold text-[#ad8c5e] bg-white border border-[#e8dba9] px-2 py-0.5 rounded shadow-sm text-xs shrink-0 flex gap-1 justify-center">
+                            <span id="timer-hours">00h</span>
+                            <span id="timer-minutes">00m</span>
+                            <span id="timer-seconds">00s</span>
+                        </span>
+                    </div>
+
+                    <div class="inline-flex items-center gap-1.5 bg-[#fbf8f0] border border-[#e8dba9] px-3.5 py-1.5 rounded-full text-[#907047] text-xs font-semibold tracking-wider uppercase mb-6 w-fit mx-auto lg:mx-0">
                         <i class="fa-solid fa-sparkles text-[#c5a880]"></i> Exclusividade em Móveis Planejados
                     </div>
 
-                    <h1 class="font-['Playfair_Display'] text-4xl sm:text-5xl font-bold text-[#151515] tracking-tight leading-[1.1] mb-6">
-                        O seu lar planejado com a <span class="italic text-[#ad8c5e] block sm:inline">perfeição</span> que você sempre sonhou.
+                    <h1 class="font-['Playfair_Display'] text-3xl sm:text-4xl font-bold text-[#151515] tracking-tight leading-[1.2] mb-6">
+                        O seu lar planejado<br>com a <span class="italic text-[#ad8c5e]">perfeição</span> que<br>você sempre sonhou.
                     </h1>
 
-                    <p class="text-gray-600 text-base sm:text-lg leading-relaxed mb-8">
-                        A <strong>Simone Planejados</strong> transforma ambientes em São Paulo com marcenaria de alto padrão. Unimos design autoral, materiais ultra-duráveis e uma montagem impecável para realizar seus sonhos dentro do prazo combinado.
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
+                        A <strong>Simone Planejados</strong> cria móveis sob medida de alto padrão em São Paulo, unindo design exclusivo, materiais nobres e montagem impecável para transformar seu lar.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10">
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 mb-10">
                         <a href="#lead-form-section" class="bg-[#c5a880] hover:bg-[#ad8c5e] text-white font-medium px-8 py-4 rounded-md shadow-lg transition-all text-center uppercase tracking-wider text-sm flex items-center justify-center gap-2">
                             Planejar Meu Espaço <i class="fa-solid fa-arrow-right"></i>
                         </a>
@@ -96,7 +111,7 @@
                         </a>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-4 border-t border-[#f4edd4] pt-8">
+                    <div class="grid grid-cols-2 gap-4 border-t border-[#f4edd4] pt-8 text-left">
                         <div class="flex items-start gap-2.5">
                             <div class="bg-[#f4edd4]/50 p-1.5 rounded-full text-[#907047] mt-0.5">
                                 <i class="fa-solid fa-shield-halved text-xs"></i>
@@ -401,8 +416,29 @@
                     </div>
                     <h2 class="font-['Playfair_Display'] text-3xl sm:text-4xl font-bold text-[#151515] mb-6">Empresa liderada por <span class="italic text-[#ad8c5e]">Mulheres Empreendedoras</span></h2>
                     <p class="text-gray-600 text-sm leading-relaxed mb-6">
-                        A <strong>Simone Planejados</strong> foi fundada para trazer o olhar detalhista, acolhedor e sensível do design de interiores feminino para o mercado de marcenaria de alto padrão.
+                        A <strong>Simone Planejados</strong> foi fundada com o propósito de trazer o olhar detalhista, acolhedor e sensível do design de interiores feminino para o mercado de marcenaria em São Paulo. Aqui, cada milímetro importa e o atendimento humanizado é a nossa maior prioridade.
                     </p>
+
+                    <!-- Perfil da Fundadora, Simone -->
+                    <div class="flex flex-col sm:flex-row items-center gap-6 bg-white p-6 rounded-xl border border-[#e8dba9]/40 shadow-sm mb-8 transition-all hover:border-[#c5a880]/60 duration-300">
+                        <div class="relative shrink-0">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-[#ad8c5e] to-[#c5a880] rounded-full -m-1 opacity-80"></div>
+                            <img
+                                src="https://i.imgur.com/lpKT1ee.png"
+                                alt="Simone - Fundadora da Simone Planejados"
+                                class="relative w-32 h-32 md:w-36 md:h-36 rounded-full object-cover border-4 border-white shadow-md bg-white"
+                                referrerpolicy="no-referrer"
+                            />
+                        </div>
+                        <div class="text-center sm:text-left flex-1">
+                            <h4 class="font-['Playfair_Display'] text-xl font-bold text-[#151515]">Simone</h4>
+                            <p class="text-[10px] text-[#ad8c5e] uppercase tracking-widest font-semibold mb-2">Fundadora e Diretora</p>
+                            <p class="text-sm italic text-gray-600 leading-relaxed">
+                                "Cada projeto de móvel sob medida é desenhado com o coração e executado com precisão milimétrica, trazendo beleza, conforto e inteligência de espaço para o seu lar."
+                            </p>
+                        </div>
+                    </div>
+
                     <div class="space-y-4 text-sm text-gray-700">
                         <div class="flex gap-3">
                             <i class="fa-solid fa-medal text-[#c5a880] text-xl mt-1"></i>
